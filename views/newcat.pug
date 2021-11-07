@@ -1,0 +1,24 @@
+extends base.pug
+
+block title
+    title newcat
+
+
+    .container.mt-5(style={width:'350px'})
+        h1 Nuevo Categoria
+        hr
+        form(action="/newcat" method="post")  
+            .form-group 
+                label(for="catNombre") Categoria
+                input#catNombre.form-control(type="text" name="catNombre" required="required")
+            
+            .form-group.mt-3
+                label(for="catDesc") Descripcion
+                input#catDesc.form-control(type="text" name="catDesc" required="required")
+            
+            .form-group.mt-3
+                .d-grid.gap-2
+                    button.btn.btn-primary Agregar
+
+                .d-grid.gap-2.mt-1
+                    a.btn.btn-success(href="/categorias") Categorias

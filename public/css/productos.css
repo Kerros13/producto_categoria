@@ -1,0 +1,22 @@
+
+th{
+    background-color:rgb(48, 172, 172);
+}
+.tlo{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+#tbldatos {
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+   
+}
+
+#tbldatos thead, td{
+    color: rgb(0, 0, 0);
+}
+

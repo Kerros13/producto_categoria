@@ -1,0 +1,33 @@
+extends base.pug
+
+block title
+    title updatepro
+
+
+    .container.mt-5(style={width:'350px'})
+        h1 Modificar Producto 
+        hr
+        form(action="/updatepro" method="post")
+            .form-group
+                input#proId.form-control(type="text" name="proId" value=producto.pro_id required="required" hidden)
+                label(for="proNombre") Nombre del producto
+                input#proNombre.form-control(type="text" name="proNombre" value=producto.pro_nombre required="required")
+            
+            .form-group.mt-3
+                label(for="proDesc") Descripcion
+                input#proDesc.form-control(name="proDesc" value=producto.pro_desc required="required")
+
+            .form-group.mt-3
+                label(for="proPrecio") Precio
+                input#proPrecio.form-control(name="proPrecio" value=producto.pro_precio required="required")
+                 
+            .form-group.mt-3
+                label(for="proCat") #Categoria
+                input#proCat.form-control(name="proCat" value=producto.pro_cat required="required")
+
+            .form-group.mt-3
+                .d-grid.gap-2
+                    button.btn.btn-primary Modificar
+
+                .d-grid.gap-2.mt-1
+                    a.btn.btn-success(href="/productos") Volver

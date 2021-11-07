@@ -1,0 +1,32 @@
+extends base.pug
+
+block title
+    title newPro
+
+
+    .container.mt-5(style={width:'350px'})
+        h1 Nuevo Producto
+        hr
+        form(action="/newpro" method="post")
+            .form-group
+                label(for="proNombre") Nombre del producto
+                input#proNombre.form-control(type="text" name="proNombre" required="required")
+            
+            .form-group.mt-3
+                label(for="proDesc") Descripcion
+                input#proDesc.form-control(name="proDesc" required="required")
+
+            .form-group.mt-3
+                label(for="proPrecio") Precio
+                input#proPrecio.form-control(name="proPrecio" required="required")
+                 
+            .form-group.mt-3
+                label(for="proCat") #Categoria
+                input#proCat.form-control(name="proCat" required="required")
+
+            .form-group.mt-3
+                .d-grid.gap-2
+                    button.btn.btn-primary Agregar
+
+                .d-grid.gap-2.mt-1
+                    a.btn.btn-success(href="/productos") Volver

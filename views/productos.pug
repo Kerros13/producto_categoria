@@ -1,0 +1,38 @@
+extends base.pug
+
+block head
+    link(rel="stylesheet", href="css/productos.css")
+
+block title
+    title Productos
+    h1 Productos
+    
+    section#tbldatos
+        table.table
+            thead
+                th Id
+                th Nombre
+                th Descripcion
+                th Precio
+                th #Categoria
+                th
+                    a.btn.btn-success(href="/newpro") Nuevo
+            tbody 
+                each producto in productos
+                    tr  
+                        td #{producto.pro_id}
+                        td #{producto.pro_nombre}
+                        td #{producto.pro_desc}
+                        td #{producto.pro_precio}
+                        td #{producto.pro_cat}
+                        td
+                            form(action="showpro" method="POST")
+                                input#proId.form-control(type="text" name="proId" value=producto.pro_id hidden)
+                                Button.btn.btn-warning.btn-xs(type="submit" style='background-color:rgb(235, 109, 25);') Modificar 
+                            form(action="deletepro" method="POST")
+                                input#proId.form-control(type="text" name="proId" value=producto.pro_id hidden)
+                                Button.btn.btn-warning.btn-xs(type="submit" style='background-color:rgb(245, 37, 30);') Borrar
+    div
+        a.btn.btn-primary(href="/categorias") Categorias
+                            
+                        

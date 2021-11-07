@@ -1,0 +1,25 @@
+extends base.pug
+
+block title
+    title updatecat
+
+
+    .container.mt-5(style={width:'350px'})
+        h1 Modificar Categoria
+        hr
+        form(action="/updatecat" method="post")  
+            .form-group 
+                input#catId.form-control(type="text" name="catId" value=categoria.cat_id required="required" hidden)
+                label(for="catNombre") Categoria
+                input#catNombre.form-control(type="text" name="catNombre" value=categoria.cat_nombre required="required")
+            
+            .form-group.mt-3
+                label(for="catDesc") Descripcion
+                input#catDesc.form-control(type="text" name="catDesc" value=categoria.cat_desc required="required")
+            
+            .form-group.mt-3
+                .d-grid.gap-2
+                    button.btn.btn-primary Modificar
+
+                .d-grid.gap-2.mt-1
+                    a.btn.btn-success(href="/categorias") Volver

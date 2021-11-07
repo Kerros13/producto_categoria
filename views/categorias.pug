@@ -1,0 +1,31 @@
+extends base.pug
+
+block head
+    link(rel="stylesheet", href="css/categorias.css")
+
+block title
+    title Categorias
+    h1 Categorias
+    section#tbldatos
+        table.table
+            thead
+                th Id
+                th Categoria
+                th Descripcion
+                th
+                    a.btn.btn-success(href="/newcat") Nuevo
+            tbody 
+                each categoria in categorias
+                    tr  
+                        td #{categoria.cat_id}
+                        td #{categoria.cat_nombre}
+                        td #{categoria.cat_desc}
+                        td
+                            form(action="showcat" method="POST")
+                                input#catId.form-control(type="text" name="catId" value=categoria.cat_id hidden)
+                                Button.btn.btn-warning.btn-xs(type="submit" style='background-color:rgb(235, 109, 25);') Modificar
+                            form(action="deletecat" method="POST")
+                                input#catId.form-control.btn-xs(type="text" name="catId" value=categoria.cat_id hidden)
+                                Button.btn.btn-danger(type="submit" style='background-color:rgb(245, 37, 30);') Borrar
+    div
+        a.btn.btn-primary(href="/productos") Productos
